@@ -1,0 +1,14 @@
+﻿
+
+<h2>Todos los productos</h2>
+
+<h3>@Model.CategoriaActual</h3>
+
+
+@{ 
+    foreach (Producto producto in Model.Productos)
+    {
+
+        @Html.Partial("SumarioProductosPartialView", producto);
+    }
+}
