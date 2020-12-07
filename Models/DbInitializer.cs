@@ -27,7 +27,7 @@ namespace emb.Models
                 (
                     new Producto
                     {
-                        Nombre = "Cerveza IODS",
+                        Nombre = "Cerveza IODSS",
                         Precio = 2.8,
                         Categoria = Categorias["Cervezas"],
                         URLImagen = "http://imgh.us/beerL_2.jpg",

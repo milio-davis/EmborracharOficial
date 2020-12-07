@@ -30,7 +30,7 @@ namespace emb.Controllers
 
         public ViewResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Pagina de contacto.";
 
             return View();
         }

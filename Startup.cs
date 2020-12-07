@@ -54,7 +54,9 @@ namespace emb
             services.AddTransient<IRepositorioProducto, RepositorioProducto>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IRepositorioOrden, RepositorioOrden>();
             services.AddScoped(sp => Carrito.GetCarrito(sp));
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

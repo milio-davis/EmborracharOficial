@@ -19,9 +19,36 @@ namespace emb.Controllers
             _carrito = carrito;
         }
 
-        public RedirectToActionResult Checkout()
+        public IActionResult Checkout()
         {
-            return RedirectToAction("Index");
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Checkout(Orden orden)
+        {
+            var items = _carrito.GetItemsCarrito();
+            _carrito.ItemsCarrito = items;
+
+            if (_carrito.ItemsCarrito.Count == 0)
+            {
+                ModelState.AddModelError("", "Orden vacia, añada productos primero");
+            }
+
+            if (ModelState.IsValid)
+            {
+                _repositorioOrden.CrearOrden(orden);
+                _carrito.LimpiarCarrito();
+                return RedirectToAction("CheckoutCompleto");
+            }
+
+            return View(orden);
+        }
+
+        public IActionResult CheckoutCompleto()
+        {
+            ViewBag.CheckoutCompleteMessage = "Gracias por su compra";
+            return View();
         }
     }
 }

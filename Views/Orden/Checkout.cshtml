@@ -1,10 +1,58 @@
 ﻿@model Orden
 
-<div class="row">
-    <form>
-        <div>
-            <input asp-for="NombreCliente" />
+<div class="row orderForm ">
+    <h3 class="text-center">Confirmacion de Orden</h3>
 
+    <div asp-validation-summary="All">
+
+    </div>
+
+    <form asp-action="Checkout" method="post" class="form-horizontal" role="form">
+        <div class="form-group">
+            <label asp-for="NombreCliente" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="NombreCliente" class="form-control" />
+                <span asp-validation-for="NombreCliente" class="text-danger"></span>
+            </div>
+        </div>        
+
+        <div class="form-group">
+            <label asp-for="Direccion" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="Direccion" class="form-control" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
         </div>
+
+        <div class="form-group">
+            <label asp-for="Ciudad" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="Ciudad" class="form-control" />
+                <span asp-validation-for="Ciudad" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Telefono" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="btn-group col-md-offset-2 col-md-8">
+                <input class="btn btn-success" type="submit" value="Completar Orden" />
+                @*<input class="btn btn-default" type="submit" value="Return " />*@
+            </div>
+        </div>
+
     </form>
 </div>
