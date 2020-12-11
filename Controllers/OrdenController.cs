@@ -30,7 +30,7 @@ namespace emb.Controllers
             var items = _carrito.GetItemsCarrito();
             _carrito.ItemsCarrito = items;
 
-            if (_carrito.ItemsCarrito.Count == 0)
+            if (_carrito.ItemsCarrito.Count < 1)
             {
                 ModelState.AddModelError("", "Orden vacia, añada productos primero");
             }
@@ -39,16 +39,17 @@ namespace emb.Controllers
             {
                 _repositorioOrden.CrearOrden(orden);
                 _carrito.LimpiarCarrito();
-                return RedirectToAction("CheckoutCompleto");
+                return RedirectToAction("CheckoutCompleto", new { orden.OrdenId });
             }
 
             return View(orden);
         }
 
-        public IActionResult CheckoutCompleto()
+        public IActionResult CheckoutCompleto(int ordenId)
         {
             ViewBag.CheckoutCompleteMessage = "Gracias por su compra";
-            return View();
+            Orden orden = _repositorioOrden.GetOrden(ordenId);
+            return View(orden);
         }
     }
 }

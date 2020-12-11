@@ -9,5 +9,6 @@ namespace emb.Interfaces
     public interface IRepositorioOrden
     {
         void CrearOrden(Orden orden);
+        Orden GetOrden(int ordenId);
     }
 }

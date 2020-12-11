@@ -96,7 +96,7 @@ namespace emb
                     template: "{controller=Home}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "filtroCategoria",
-                    template: "Producto/{action}/{categoria?}",
+                    template: "Producto/{action}/{categoria}",
                     defaults: new { Controller = "Producto", action = "Lista" });
 
             });

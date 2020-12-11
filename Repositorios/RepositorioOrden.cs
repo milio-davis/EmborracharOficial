@@ -38,6 +38,14 @@ namespace emb.Repositorios
                 _appDbContext.DetallesOrden.Add(detalleOrden);
             }
             _appDbContext.SaveChanges();
+
+        }
+
+        public Orden GetOrden(int ordenId)
+        {
+            return _appDbContext.Ordenes.Where(p => p.OrdenId == ordenId).FirstOrDefault();
         }
     }
+
+    
 }

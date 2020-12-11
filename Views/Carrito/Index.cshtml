@@ -23,7 +23,7 @@
                     <td class="text-right">
                         @((line.Cantidad * line.Producto.Precio).ToString("c"))
                     </td>
-                    <td class="text-center"><a class="glyphicon glyphicon-remove text-danger remove" asp-controller="Carrito" asp-action="RemoverDeCarrito" asp-route-drinkId="@line.Producto.ProductoId"></a></td>
+                    <td class="text-center"><a class="glyphicon glyphicon-remove text-danger remove" asp-controller="Carrito" asp-action="RemoverDeCarrito" asp-route-productoId="@line.Producto.ProductoId"></a></td>
                 </tr>
             }
         </tbody>
@@ -45,9 +45,10 @@
                     Añadir mas productos <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a asp-controller="Producto" asp-action="Lista" asp-route-category="Cervezas">Cervezas</a></li>
-                    <li><a asp-controller="Producto" asp-action="Lista" asp-route-category="Vinos">Vinos</a></li>
-                    <li><a asp-controller="Producto" asp-action="Lista" asp-route-category="Whiskies">Whiskies</a></li>
+                    <li><a asp-controller="Producto" asp-action="Lista" asp-route-categoria="Cervezas">Cervezas</a></li>
+                    <li><a asp-controller="Producto" asp-action="Lista" asp-route-categoria="Vinos">Vinos</a></li>
+                    <li><a asp-controller="Producto" asp-action="Lista" asp-route-categoria="Whiskies">Whiskies</a></li>
+
                 </ul>
             </a>
         </div>
