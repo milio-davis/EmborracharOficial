@@ -25,5 +25,7 @@ namespace emb.Context
         public DbSet<Orden> Ordenes { get; set; }
 
         public DbSet<DetalleOrden> DetallesOrden { get; set; }
+
+        public DbSet<Cuenta> Cuentas { get; set; }
     }
 }

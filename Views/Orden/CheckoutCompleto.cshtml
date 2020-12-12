@@ -3,12 +3,14 @@
     @ViewBag.CheckoutCompleteMessage
 </h1>
 
+<div style="text-align:center">
+    <h2>Numero de Orden: @Model.OrdenId</h2>
+    <p>Sus datos:</p>
+    <h3>@Model.NombreCliente</h3>
+    <h4>@Model.Direccion, @Model.Ciudad</h4>
+    <h4>Tel: @Model.Telefono</h4>
+    <h4>@Model.Email</h4>
+    <h5>@Model.FechaCompra</h5>
+    <h3>Total: $@Model.TotalOrden</h3>
 
-<h2>Numero de Orden: @Model.OrdenId</h2>
-<h3>@Model.NombreCliente</h3>
-<h4>@Model.Direccion, @Model.Ciudad</h4>
-<h4>@Model.Telefono</h4>
-<h4>@Model.Email</h4>
-<h5>@Model.FechaCompra</h5>
-<h3>$@Model.TotalOrden</h3>
-
+</div>

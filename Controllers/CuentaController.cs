@@ -1,4 +1,5 @@
 ﻿using emb.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace emb.Controllers
 {
+    
     public class CuentaController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -19,6 +21,7 @@ namespace emb.Controllers
             _signInManager = signInManager;
         }
 
+        
         public IActionResult Login(string returnUrl)
         {
             return View(new LoginViewModel()
@@ -26,7 +29,7 @@ namespace emb.Controllers
                 ReturnUrl = returnUrl
             });
         }
-
+        
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
@@ -51,12 +54,13 @@ namespace emb.Controllers
                 }
                 
             }
-            // CHECKEAR
+            
             ModelState.AddModelError("", "Username/Password no encontradas");
             return View(loginViewModel);
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();

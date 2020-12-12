@@ -1,5 +1,6 @@
 ﻿using emb.Context;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,19 @@ namespace emb.Models
                 context.Categorias.AddRange(Categorias.Select(c => c.Value));
             }
 
+            var user = new IdentityUser() { UserName = "ASD" };
+
+            if (!context.Cuentas.Any())
+            {
+                context.Cuentas.AddRange(
+                    new Cuenta
+                    {
+                        Username = "ASD",
+                        Password = "123"
+                    });
+                
+            }
+
             if (!context.Productos.Any())
             {
                 context.AddRange
@@ -30,7 +44,7 @@ namespace emb.Models
                         Nombre = "Quilmes",
                         Precio = 2.8,
                         Categoria = Categorias["Cervezas"],
-                        URLImagen = "http://imgh.us/beerL_2.jpg",
+                        URLImagen = "",
                         Stock = 30
                     },
                     new Producto
@@ -38,7 +52,7 @@ namespace emb.Models
                         Nombre = "Trapiche",
                         Precio = 2458,
                         Categoria = Categorias["Vinos"],
-                        URLImagen = "http://imgh.us/rumCokeL.jpg",
+                        URLImagen = "",
                         Stock = 40
                     },
                     new Producto
@@ -46,7 +60,7 @@ namespace emb.Models
                         Nombre = "Whisky Dios",
                         Precio = 238,
                         Categoria = Categorias["Whiskies"],
-                        URLImagen = "http://imgh.us/rumCokeL.jpg",
+                        URLImagen = "",
                         Stock = 1
                     }
                     ,
@@ -55,7 +69,7 @@ namespace emb.Models
                         Nombre = "420",
                         Precio = 238,
                         Categoria = Categorias["Whiskies"],
-                        URLImagen = "http://imgh.us/rumCokeL.jpg",
+                        URLImagen = "~/images/bebidas/black label.jpg",
                         Stock = 1
                     },
                     new Producto
@@ -63,7 +77,7 @@ namespace emb.Models
                         Nombre = "Gaggager",
                         Precio = 238,
                         Categoria = Categorias["Vinos"],
-                        URLImagen = "http://imgh.us/rumCokeL.jpg",
+                        URLImagen = "",
                         Stock = 1
                     }
 
