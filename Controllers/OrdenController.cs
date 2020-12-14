@@ -1,5 +1,6 @@
 ﻿using emb.Interfaces;
 using emb.Models;
+using emb.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,32 @@ namespace emb.Controllers
             Orden orden = _repositorioOrden.GetOrden(ordenId);
             return View(orden);
         }
+
+        [HttpGet]
+        public ActionResult BuscarOrden(int ordenId)
+        {
+            var vm = new OrdenViewModel();
+            Orden orden = _repositorioOrden.GetOrden(ordenId);
+            if (orden == null)
+            {
+                ViewBag.Encontrado = "Orden no existente";
+            } else
+            {
+                vm.OrdenId = orden.OrdenId;
+                vm.NombreCliente = orden.NombreCliente;
+            }            
+            
+            return View(vm);
+            //return RedirectToAction("BusquedaCompleta");
+        }
+
+        public IActionResult BusquedaCompleta(Orden orden)
+        {
+            ViewBag.CheckoutCompleteMessage = "Busqueda de su orden";
+            
+            return View(orden);
+        }
+
 
     }
 }

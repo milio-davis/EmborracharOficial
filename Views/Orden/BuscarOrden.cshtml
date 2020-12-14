@@ -1,0 +1,13 @@
+﻿@model OrdenViewModel
+
+<div>
+    <h2>Busque su orden:</h2>
+</div>
+
+<form action="BuscarOrden" method="get">
+    <input type="text" name="ordenId" />
+    <input type="submit" value="Buscar" />
+</form>
+
+<p>@Model.OrdenId</p>
+<p>@Model.NombreCliente</p>
