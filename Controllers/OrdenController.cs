@@ -47,9 +47,10 @@ namespace emb.Controllers
 
         public IActionResult CheckoutCompleto(int ordenId)
         {
-            ViewBag.CheckoutCompleteMessage = "Gracias por su compra";
+            ViewBag.CheckoutCompleteMessage = "Gracias por su compra";            
             Orden orden = _repositorioOrden.GetOrden(ordenId);
             return View(orden);
         }
+
     }
 }

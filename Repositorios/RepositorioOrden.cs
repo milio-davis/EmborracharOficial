@@ -24,6 +24,8 @@ namespace emb.Repositorios
             orden.FechaCompra = DateTime.Now;
             _appDbContext.Ordenes.Add(orden);
 
+            orden.TotalOrden = _carrito.GetTotalCarrito();
+
             var itemsCarrito = _carrito.ItemsCarrito;
 
             foreach (var item in itemsCarrito)
@@ -33,7 +35,7 @@ namespace emb.Repositorios
                     Cantidad = item.Cantidad,
                     ProductoId = item.Producto.ProductoId,
                     OrdenId = orden.OrdenId,
-                    Precio = item.Producto.Precio
+                    Precio = item.Producto.Precio                    
                 };
                 _appDbContext.DetallesOrden.Add(detalleOrden);
             }
