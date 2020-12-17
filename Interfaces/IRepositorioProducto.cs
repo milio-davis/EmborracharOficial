@@ -10,5 +10,7 @@ namespace emb.Interfaces
     {
         IEnumerable<Producto> Productos { get;}
         Producto obtenerProductoPorId(int productoId);
+
+        void AgregarProducto(Producto producto);
     }
 }

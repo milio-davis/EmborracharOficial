@@ -15,7 +15,7 @@ namespace emb.Context
         {
 
         }
-
+        
         public DbSet<Producto> Productos { get; set; }
 
         public DbSet<Categoria> Categorias { get; set; }
@@ -27,5 +27,20 @@ namespace emb.Context
         public DbSet<DetalleOrden> DetallesOrden { get; set; }
 
         public DbSet<Cuenta> Cuentas { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<DetalleOrden>()
+                .HasOne(p => p.Orden)
+                .WithMany(b => b.DetallesOrden);
+        }
+        /*
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Orden>()
+                .HasMany(b => b.DetallesOrden)
+                .WithOne();
+        }
+        */
     }
 }

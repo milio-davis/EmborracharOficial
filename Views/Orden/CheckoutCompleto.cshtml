@@ -12,6 +12,11 @@
     <h4>@Model.Email</h4>
     <h5>@Model.FechaCompra</h5>
     <h3>Total: $@Model.TotalOrden</h3>
+    <h2>@Model.DetallesOrden</h2>
+    @foreach (DetalleOrden detalle in Model.DetallesOrden)
+    {
+        <p>@detalle.Producto.Nombre</p>
+    }
 
 
 </div>

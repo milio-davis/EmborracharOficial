@@ -20,6 +20,12 @@ namespace emb.Repositorios
         public IEnumerable<Producto> Productos => _appDbContext.Productos.Include(c => c.Categoria);
 
         public Producto obtenerProductoPorId(int productoId) => _appDbContext.Productos.FirstOrDefault(p => p.ProductoId == productoId);
+
         
+
+        public void AgregarProducto(Producto producto)
+        {
+            _appDbContext.Productos.Add(producto);
+        }
     }
 }

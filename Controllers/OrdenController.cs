@@ -63,21 +63,20 @@ namespace emb.Controllers
                 ViewBag.Encontrado = "Orden no existente";
             } else
             {
+                ViewBag.Encontrado = "Orden hallada";
                 vm.OrdenId = orden.OrdenId;
                 vm.NombreCliente = orden.NombreCliente;
+                vm.DetallesOrden = orden.DetallesOrden;
+                vm.Direccion = orden.Direccion;
+                vm.Ciudad = orden.Ciudad;
+                vm.Telefono = orden.Telefono;
+                vm.Email = orden.Email;
+                vm.TotalOrden = orden.TotalOrden;
+                vm.FechaCompra = orden.FechaCompra;
             }            
             
             return View(vm);
-            //return RedirectToAction("BusquedaCompleta");
         }
-
-        public IActionResult BusquedaCompleta(Orden orden)
-        {
-            ViewBag.CheckoutCompleteMessage = "Busqueda de su orden";
-            
-            return View(orden);
-        }
-
 
     }
 }

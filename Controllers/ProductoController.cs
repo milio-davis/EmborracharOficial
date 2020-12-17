@@ -57,5 +57,20 @@ namespace emb.Controllers
             return View(listaProductosViewModel);
         }
 
+        [HttpPut]
+        public ActionResult AgregarProducto(
+            string nombre, double precio, int stock, Categoria categoria)
+        {
+            Producto producto = new Producto();
+            producto.Nombre = nombre;
+            producto.Precio = precio;
+            producto.Stock = stock;
+            producto.Categoria = categoria;
+
+            _repositorioProducto.AgregarProducto(producto);
+            return RedirectToAction("Home", "Index");
+        }
+
+
     }
 }
