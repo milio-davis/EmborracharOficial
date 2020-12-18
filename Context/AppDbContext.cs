@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace emb.Context
 {
-    public class AppDbContext : IdentityDbContext<IdentityUser>
+    public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options): base(options)
         {
@@ -30,17 +30,14 @@ namespace emb.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DetalleOrden>()
-                .HasOne(p => p.Orden)
-                .WithMany(b => b.DetallesOrden);
-        }
-        /*
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
             modelBuilder.Entity<Orden>()
                 .HasMany(b => b.DetallesOrden)
                 .WithOne();
+            modelBuilder.Entity<DetalleOrden>()
+                .HasOne(p => p.Orden)
+                .WithMany(b => b.DetallesOrden)
+                .HasForeignKey(b => b.OrdenId);
+
         }
-        */
     }
 }

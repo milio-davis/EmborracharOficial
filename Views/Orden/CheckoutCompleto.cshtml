@@ -1,5 +1,6 @@
-﻿
-<h1>
+﻿@model OrdenViewModel
+
+<h1 class="text-center">
     @ViewBag.CheckoutCompleteMessage
 </h1>
 
@@ -12,11 +13,10 @@
     <h4>@Model.Email</h4>
     <h5>@Model.FechaCompra</h5>
     <h3>Total: $@Model.TotalOrden</h3>
-    <h2>@Model.DetallesOrden</h2>
-    @foreach (DetalleOrden detalle in Model.DetallesOrden)
-    {
-        <p>@detalle.Producto.Nombre</p>
-    }
+
+    @Html.Partial("ProductosEnOrdenPartialView");
+
+    
 
 
 </div>

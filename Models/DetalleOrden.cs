@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,5 +21,7 @@ namespace emb.Models
         public Producto Producto { get; set; }
 
         public Orden Orden { get; set; }
+
+        public string NombreCategoria { get; set; }
     }
 }

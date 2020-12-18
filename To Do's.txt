@@ -1,7 +1,0 @@
-﻿TO DO
- * Estilo de pagina
- * Barra busqueda de Orden
- * Solucionar login admin (crear contraseña admin en DbInitializer) (user ASD pw 123)
- * admin's view -> add product, modify product, get all orders
-
-mostrar detalles de cada orden

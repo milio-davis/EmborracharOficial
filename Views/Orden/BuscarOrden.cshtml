@@ -10,11 +10,21 @@
 </form>
 
 
-    <ul class="list-group">
-        <li class="list-group-item disabled">OrdenId: @Model.OrdenId</li>
-        <li class="list-group-item">Nombre: @Model.NombreCliente</li>
-        <li class="list-group-item">Total: $@Model.TotalOrden</li>
-        <li class="list-group-item">Fecha: @Model.FechaCompra</li>
-        <li class="list-group-item">Direccion: @Model.Direccion, @Model.Ciudad</li>
-        <li class="list-group-item">Telefono: @Model.Telefono</li>
-    </ul>
+@if (Model.OrdenId != 0)
+{
+<ul class="list-group">
+    <h2>Datos</h2>
+    <li class="list-group-item disabled">OrdenId: @Model.OrdenId</li>
+    <li class="list-group-item">Nombre: @Model.NombreCliente</li>
+    <li class="list-group-item">Total: $@Model.TotalOrden</li>
+    <li class="list-group-item">Fecha: @Model.FechaCompra</li>
+    <li class="list-group-item">Direccion: @Model.Direccion, @Model.Ciudad</li>
+    <li class="list-group-item">Telefono: @Model.Telefono</li>
+    <br />
+    <h2>Productos</h2>
+
+
+    @Html.Partial("ProductosEnOrdenPartialView");
+
+</ul>
+}

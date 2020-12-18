@@ -10,5 +10,6 @@ namespace emb.Interfaces
     {
         void CrearOrden(Orden orden);
         Orden GetOrden(int ordenId);
+        List<DetalleOrden> GetDetallesOrden(int ordenId);
     }
 }

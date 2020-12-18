@@ -1,0 +1,29 @@
+﻿@model OrdenViewModel
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <td class="text-center">Nombre</td>
+            <td class="text-center">Categoria</td>
+            <td class="text-center">Cantidad</td>
+            <td class="text-center">Precio Unitario</td>
+            <td class="text-center">Subtotal</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.DetallesOrden)
+        {
+            <tr>
+                <td class="text-center">@line.Producto.Nombre</td>
+                <td class="text-center">@line.NombreCategoria</td>
+                <td class="text-center">@line.Cantidad</td>
+
+                <td class="text-center">@line.Producto.Precio.ToString("c")</td>
+                <td class="text-center">
+                    @((line.Cantidad * line.Producto.Precio).ToString("c"))
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

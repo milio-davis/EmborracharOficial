@@ -46,8 +46,30 @@ namespace emb.Repositorios
         public Orden GetOrden(int ordenId)
         {
             return _appDbContext.Ordenes.Where(p => p.OrdenId == ordenId).FirstOrDefault();
+
+        }
+
+        public List<DetalleOrden> GetDetallesOrden(int ordenId)
+        {
+            
+            var query = from a in _appDbContext.DetallesOrden
+                        join s in _appDbContext.Ordenes on a.OrdenId equals s.OrdenId
+                        join d in _appDbContext.Productos on a.ProductoId equals d.ProductoId
+                        join f in _appDbContext.Categorias on d.CategoriaId equals f.CategoriaId
+                        where a.OrdenId == ordenId
+                        select new DetalleOrden
+                        {
+                            DetalleOrdenId = a.DetalleOrdenId,
+                            OrdenId = a.OrdenId,
+                            ProductoId = a.ProductoId,
+                            Cantidad = a.Cantidad,
+                            Precio = a.Precio,
+                            Producto = a.Producto,                            
+                            Orden = a.Orden,
+                            NombreCategoria = f.Nombre
+                        };
+            return query.ToList();
+
         }
     }
-
-    
 }

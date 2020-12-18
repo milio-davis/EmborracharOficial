@@ -13,7 +13,6 @@ namespace emb.Models
         [BindNever]
         
         public int OrdenId { get; set; }
-
         public List<DetalleOrden> DetallesOrden { get; set; }
 
         [Required(ErrorMessage = "Ingresar nombre")]
