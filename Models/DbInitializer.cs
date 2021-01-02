@@ -21,19 +21,7 @@ namespace emb.Models
             {
                 context.Categorias.AddRange(Categorias.Select(c => c.Value));
             }
-
-            var user = new IdentityUser() { UserName = "ASD" };
-
-            if (!context.Cuentas.Any())
-            {
-                context.Cuentas.AddRange(
-                    new Cuenta
-                    {
-                        Username = "ASD",
-                        Password = "123"
-                    });
-                
-            }
+           
 
             if (!context.Productos.Any())
             {
@@ -58,7 +46,7 @@ namespace emb.Models
                     new Producto
                     {
                         Nombre = "Whisky Dios",
-                        Precio = 238,
+                        Precio = 258,
                         Categoria = Categorias["Whiskies"],
                         URLImagen = "",
                         Stock = 1
@@ -75,7 +63,7 @@ namespace emb.Models
                     new Producto
                     {
                         Nombre = "Gaggager",
-                        Precio = 238,
+                        Precio = 269,
                         Categoria = Categorias["Vinos"],
                         URLImagen = "",
                         Stock = 1
