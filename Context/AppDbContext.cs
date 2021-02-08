@@ -37,7 +37,7 @@ namespace emb.Context
                 .HasOne(p => p.Orden)
                 .WithMany(b => b.DetallesOrden)
                 .HasForeignKey(b => b.OrdenId);
-
+                
         }
     }
 }

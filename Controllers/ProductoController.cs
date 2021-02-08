@@ -36,15 +36,15 @@ namespace emb.Controllers
             {
                 if (string.Equals("Cervezas", _categoria, StringComparison.OrdinalIgnoreCase))
                 {
-                    productos = _repositorioProducto.Productos.Where(p => p.Categoria.Nombre.Equals("Cervezas")).OrderBy(n => n.ProductoId);
+                    productos = _repositorioProducto.Productos.Where(p => p.Categoria.NombreCategoria.Equals("Cervezas")).OrderBy(n => n.ProductoId);
                     categoriaActual = "Cervezas";
                 } else if (string.Equals("Vinos", _categoria, StringComparison.OrdinalIgnoreCase))
                 {
-                    productos = _repositorioProducto.Productos.Where(p => p.Categoria.Nombre.Equals("Vinos")).OrderBy(n => n.ProductoId);
+                    productos = _repositorioProducto.Productos.Where(p => p.Categoria.NombreCategoria.Equals("Vinos")).OrderBy(n => n.ProductoId);
                     categoriaActual = "Vinos";
                 } else
                 {
-                    productos = _repositorioProducto.Productos.Where(p => p.Categoria.Nombre.Equals("Whiskies")).OrderBy(n => n.ProductoId);
+                    productos = _repositorioProducto.Productos.Where(p => p.Categoria.NombreCategoria.Equals("Whiskies")).OrderBy(n => n.ProductoId);
                     categoriaActual = "Whiskies";
                 }
                 categoriaActual = _categoria;

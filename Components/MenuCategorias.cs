@@ -19,7 +19,7 @@ namespace emb.Components
 
         public IViewComponentResult Invoke()
         {
-            var categorias = _repositorioCategoria.Categorias.OrderBy(p => p.Nombre);
+            var categorias = _repositorioCategoria.Categorias.OrderBy(p => p.NombreCategoria);
             return View(categorias);
         }
     }

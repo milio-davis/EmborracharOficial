@@ -42,7 +42,7 @@ namespace emb
         {
 
             services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlServer(_configurationRoot.GetConnectionString("DefaultConnection"),x => x.MigrationsAssembly("WebApplication")));
+            options.UseSqlServer(_configurationRoot.GetConnectionString("DefaultConnection"),x => x.MigrationsAssembly("emb")));
 
             services.AddDefaultIdentity<IdentityUser>()
             .AddRoles<IdentityRole>()

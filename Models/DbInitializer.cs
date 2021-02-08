@@ -84,16 +84,16 @@ namespace emb.Models
                 {
                     var genresList = new Categoria[]
                     {
-                        new Categoria { Nombre = "Cervezas"},
-                        new Categoria { Nombre = "Vinos"},
-                        new Categoria { Nombre = "Whiskies"}
+                        new Categoria { NombreCategoria = "Cervezas"},
+                        new Categoria { NombreCategoria = "Vinos"},
+                        new Categoria { NombreCategoria = "Whiskies"}
                     };
 
                     categorias = new Dictionary<string, Categoria>();
 
                     foreach (Categoria genre in genresList)
                     {
-                        categorias.Add(genre.Nombre, genre);
+                        categorias.Add(genre.NombreCategoria, genre);
                     }
                 }
 

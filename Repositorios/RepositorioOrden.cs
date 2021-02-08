@@ -66,7 +66,7 @@ namespace emb.Repositorios
                             Precio = a.Precio,
                             Producto = a.Producto,                            
                             Orden = a.Orden,
-                            NombreCategoria = f.Nombre
+                            NombreCategoria = f.NombreCategoria
                         };
             return query.ToList();
 
