@@ -29,15 +29,14 @@ namespace emb.Context
         public DbSet<Cuenta> Cuentas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Orden>()
-                .HasMany(b => b.DetallesOrden)
-                .WithOne();
+         {
+            _ = modelBuilder.Entity<Orden>()
+
+            .HasKey(b => b.OrdenId);
+           
             modelBuilder.Entity<DetalleOrden>()
-                .HasOne(p => p.Orden)
-                .WithMany(b => b.DetallesOrden)
-                .HasForeignKey(b => b.OrdenId);
-                
-        }
+            .HasOne(p => p.Orden)
+            .WithMany(b => b.DetallesOrden).OnDelete(DeleteBehavior.Restrict);           
+          }
     }
 }
